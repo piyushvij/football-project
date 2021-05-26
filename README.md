@@ -1,2 +1,1 @@
-# sample-projects
-sample-projects
+# football-project

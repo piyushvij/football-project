@@ -39,12 +39,19 @@ public class ServiceController {
 	// league football match using country name, league name and team name.
 	//http://localhost:8080/standingresult?teamname=Real%20Madrid&leaguename=La%20Liga&countryname=Spain
 	String restEndPointURL = "https://apiv3.apifootball.com";
-	Gson gson = new Gson();
+
+
+	@GetMapping("/")
+	public String getRootMessage(){
+		return "You are root context";
+	}
 	
 	@GetMapping("/standingresult")
 	public String getStandingbyTeamLeagueCountryName(@RequestParam String teamname, 
 			@RequestParam String leaguename,
 			@RequestParam String countryname) throws KeyManagementException, KeyStoreException, NoSuchAlgorithmException {
+
+		Gson gson = new Gson();
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);

@@ -6,6 +6,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.net.ssl.SSLContext;
 
@@ -66,16 +68,19 @@ public class ServiceController {
 		List<StandingModel> standingModelList = gson.fromJson(responseEntity.getBody().toString(), collectionType);
 		
 		StringBuffer sb =  new StringBuffer();
-		for(StandingModel obj: standingModelList) {
-			if(obj.getCountryName().equalsIgnoreCase(countryname)
-					&& obj.getLeagueName().equalsIgnoreCase(leaguename)
-					&& obj.getTeamName().equalsIgnoreCase(teamname)) {
-				sb.append("Country ID & Name:" + obj.getCountryName()).append("<br>");
-				sb.append("League ID & Name:" +obj.getLeagueId() +  "-" + obj.getLeagueName()).append("<br>");
-				sb.append("Team ID & Name:" +obj.getTeamId() +  "-" + obj.getTeamName()).append("<br>");
-				sb.append("Overall League Position:" +obj.getOverallLeaguePosition()).append("<br>");
-			}
-		}
+		
+		List<StandingModel> filterOp = standingModelList.stream()
+		.filter(x -> (x.getCountryName().equalsIgnoreCase(countryname)
+				& x.getLeagueName().equalsIgnoreCase(leaguename)
+				& x.getTeamName().equalsIgnoreCase(teamname)))
+		.collect(Collectors.toList());
+		
+		filterOp.stream().forEach(x -> 
+		sb.append("Country ID & Name:" + x.getCountryName()).append("<br>").
+		append("League ID & Name:" +x.getLeagueId() +  "-" + x.getLeagueName()).append("<br>").
+		append("Team ID & Name:" +x.getTeamId() +  "-" + x.getTeamName()).append("<br>").
+		append("Overall League Position:" +x.getOverallLeaguePosition()).append("<br>"));
+		
 		if(sb.length()<=0) {
 			sb.append("No result found for the Team Name:"+teamname + " leaguename:"+leaguename + " countryname:"+ countryname);
 		}

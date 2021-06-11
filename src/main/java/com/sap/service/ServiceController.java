@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.google.gson.Gson;
 import com.sap.config.ConfigIface;
 
 @RestController
@@ -48,7 +47,7 @@ public class ServiceController {
 			@RequestParam String leaguename,
 			@RequestParam String countryname) throws KeyManagementException, KeyStoreException, NoSuchAlgorithmException {
 		StringBuffer sb =  new StringBuffer();
-
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
 		HttpEntity<?> entity = new HttpEntity<>(headers);
@@ -73,10 +72,10 @@ public class ServiceController {
 		.collect(Collectors.toList());
 		
 		filterOp.forEach(x -> 
-		sb.append("Country ID & Name:" + x.getCountryName()).append("<br>").
-		append("League ID & Name:" +x.getLeagueId() +  "-" + x.getLeagueName()).append("<br>").
-		append("Team ID & Name:" +x.getTeamId() +  "-" + x.getTeamName()).append("<br>").
-		append("Overall League Position:" +x.getOverallLeaguePosition()).append("<br>"));
+			sb.append("Country ID & Name:" + x.getCountryName()).append("<br>").
+			append("League ID & Name:" +x.getLeagueId() +  "-" + x.getLeagueName()).append("<br>").
+			append("Team ID & Name:" +x.getTeamId() +  "-" + x.getTeamName()).append("<br>").
+			append("Overall League Position:" +x.getOverallLeaguePosition()).append("<br>"));
 		
 		if(sb.length()<=0) {
 			sb.append("No result found for the Team Name:"+teamname + " leaguename:"+leaguename + " countryname:"+ countryname);

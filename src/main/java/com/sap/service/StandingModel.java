@@ -1,411 +1,502 @@
-
 package com.sap.service;
 
-import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Generated;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+"country_name",
+"league_id",
+"league_name",
+"team_id",
+"team_name",
+"overall_promotion",
+"overall_league_position",
+"overall_league_payed",
+"overall_league_W",
+"overall_league_D",
+"overall_league_L",
+"overall_league_GF",
+"overall_league_GA",
+"overall_league_PTS",
+"home_league_position",
+"home_promotion",
+"home_league_payed",
+"home_league_W",
+"home_league_D",
+"home_league_L",
+"home_league_GF",
+"home_league_GA",
+"home_league_PTS",
+"away_league_position",
+"away_promotion",
+"away_league_payed",
+"away_league_W",
+"away_league_D",
+"away_league_L",
+"away_league_GF",
+"away_league_GA",
+"away_league_PTS",
+"league_round",
+"team_badge",
+"fk_stage_key",
+"stage_name"
+})
 @Generated("jsonschema2pojo")
-public class StandingModel implements Serializable
-{
+public class StandingModel {
 
-@SerializedName("country_name")
-@Expose
+@JsonProperty("country_name")
 private String countryName;
-@SerializedName("league_id")
-@Expose
+@JsonProperty("league_id")
 private String leagueId;
-@SerializedName("league_name")
-@Expose
+@JsonProperty("league_name")
 private String leagueName;
-@SerializedName("team_id")
-@Expose
+@JsonProperty("team_id")
 private String teamId;
-@SerializedName("team_name")
-@Expose
+@JsonProperty("team_name")
 private String teamName;
-@SerializedName("overall_promotion")
-@Expose
+@JsonProperty("overall_promotion")
 private String overallPromotion;
-@SerializedName("overall_league_position")
-@Expose
+@JsonProperty("overall_league_position")
 private String overallLeaguePosition;
-@SerializedName("overall_league_payed")
-@Expose
+@JsonProperty("overall_league_payed")
 private String overallLeaguePayed;
-@SerializedName("overall_league_W")
-@Expose
+@JsonProperty("overall_league_W")
 private String overallLeagueW;
-@SerializedName("overall_league_D")
-@Expose
+@JsonProperty("overall_league_D")
 private String overallLeagueD;
-@SerializedName("overall_league_L")
-@Expose
+@JsonProperty("overall_league_L")
 private String overallLeagueL;
-@SerializedName("overall_league_GF")
-@Expose
+@JsonProperty("overall_league_GF")
 private String overallLeagueGF;
-@SerializedName("overall_league_GA")
-@Expose
+@JsonProperty("overall_league_GA")
 private String overallLeagueGA;
-@SerializedName("overall_league_PTS")
-@Expose
+@JsonProperty("overall_league_PTS")
 private String overallLeaguePTS;
-@SerializedName("home_league_position")
-@Expose
+@JsonProperty("home_league_position")
 private String homeLeaguePosition;
-@SerializedName("home_promotion")
-@Expose
+@JsonProperty("home_promotion")
 private String homePromotion;
-@SerializedName("home_league_payed")
-@Expose
+@JsonProperty("home_league_payed")
 private String homeLeaguePayed;
-@SerializedName("home_league_W")
-@Expose
+@JsonProperty("home_league_W")
 private String homeLeagueW;
-@SerializedName("home_league_D")
-@Expose
+@JsonProperty("home_league_D")
 private String homeLeagueD;
-@SerializedName("home_league_L")
-@Expose
+@JsonProperty("home_league_L")
 private String homeLeagueL;
-@SerializedName("home_league_GF")
-@Expose
+@JsonProperty("home_league_GF")
 private String homeLeagueGF;
-@SerializedName("home_league_GA")
-@Expose
+@JsonProperty("home_league_GA")
 private String homeLeagueGA;
-@SerializedName("home_league_PTS")
-@Expose
+@JsonProperty("home_league_PTS")
 private String homeLeaguePTS;
-@SerializedName("away_league_position")
-@Expose
+@JsonProperty("away_league_position")
 private String awayLeaguePosition;
-@SerializedName("away_promotion")
-@Expose
+@JsonProperty("away_promotion")
 private String awayPromotion;
-@SerializedName("away_league_payed")
-@Expose
+@JsonProperty("away_league_payed")
 private String awayLeaguePayed;
-@SerializedName("away_league_W")
-@Expose
+@JsonProperty("away_league_W")
 private String awayLeagueW;
-@SerializedName("away_league_D")
-@Expose
+@JsonProperty("away_league_D")
 private String awayLeagueD;
-@SerializedName("away_league_L")
-@Expose
+@JsonProperty("away_league_L")
 private String awayLeagueL;
-@SerializedName("away_league_GF")
-@Expose
+@JsonProperty("away_league_GF")
 private String awayLeagueGF;
-@SerializedName("away_league_GA")
-@Expose
+@JsonProperty("away_league_GA")
 private String awayLeagueGA;
-@SerializedName("away_league_PTS")
-@Expose
+@JsonProperty("away_league_PTS")
 private String awayLeaguePTS;
-@SerializedName("league_round")
-@Expose
+@JsonProperty("league_round")
 private String leagueRound;
-@SerializedName("team_badge")
-@Expose
+@JsonProperty("team_badge")
 private String teamBadge;
-@SerializedName("fk_stage_key")
-@Expose
+@JsonProperty("fk_stage_key")
 private String fkStageKey;
-@SerializedName("stage_name")
-@Expose
+@JsonProperty("stage_name")
 private String stageName;
-private final static long serialVersionUID = 4307007962033925167L;
+@JsonIgnore
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+@JsonProperty("country_name")
 public String getCountryName() {
 return countryName;
 }
 
+@JsonProperty("country_name")
 public void setCountryName(String countryName) {
 this.countryName = countryName;
 }
 
+@JsonProperty("league_id")
 public String getLeagueId() {
 return leagueId;
 }
 
+@JsonProperty("league_id")
 public void setLeagueId(String leagueId) {
 this.leagueId = leagueId;
 }
 
+@JsonProperty("league_name")
 public String getLeagueName() {
 return leagueName;
 }
 
+@JsonProperty("league_name")
 public void setLeagueName(String leagueName) {
 this.leagueName = leagueName;
 }
 
+@JsonProperty("team_id")
 public String getTeamId() {
 return teamId;
 }
 
+@JsonProperty("team_id")
 public void setTeamId(String teamId) {
 this.teamId = teamId;
 }
 
+@JsonProperty("team_name")
 public String getTeamName() {
 return teamName;
 }
 
+@JsonProperty("team_name")
 public void setTeamName(String teamName) {
 this.teamName = teamName;
 }
 
+@JsonProperty("overall_promotion")
 public String getOverallPromotion() {
 return overallPromotion;
 }
 
+@JsonProperty("overall_promotion")
 public void setOverallPromotion(String overallPromotion) {
 this.overallPromotion = overallPromotion;
 }
 
+@JsonProperty("overall_league_position")
 public String getOverallLeaguePosition() {
 return overallLeaguePosition;
 }
 
+@JsonProperty("overall_league_position")
 public void setOverallLeaguePosition(String overallLeaguePosition) {
 this.overallLeaguePosition = overallLeaguePosition;
 }
 
+@JsonProperty("overall_league_payed")
 public String getOverallLeaguePayed() {
 return overallLeaguePayed;
 }
 
+@JsonProperty("overall_league_payed")
 public void setOverallLeaguePayed(String overallLeaguePayed) {
 this.overallLeaguePayed = overallLeaguePayed;
 }
 
+@JsonProperty("overall_league_W")
 public String getOverallLeagueW() {
 return overallLeagueW;
 }
 
+@JsonProperty("overall_league_W")
 public void setOverallLeagueW(String overallLeagueW) {
 this.overallLeagueW = overallLeagueW;
 }
 
+@JsonProperty("overall_league_D")
 public String getOverallLeagueD() {
 return overallLeagueD;
 }
 
+@JsonProperty("overall_league_D")
 public void setOverallLeagueD(String overallLeagueD) {
 this.overallLeagueD = overallLeagueD;
 }
 
+@JsonProperty("overall_league_L")
 public String getOverallLeagueL() {
 return overallLeagueL;
 }
 
+@JsonProperty("overall_league_L")
 public void setOverallLeagueL(String overallLeagueL) {
 this.overallLeagueL = overallLeagueL;
 }
 
+@JsonProperty("overall_league_GF")
 public String getOverallLeagueGF() {
 return overallLeagueGF;
 }
 
+@JsonProperty("overall_league_GF")
 public void setOverallLeagueGF(String overallLeagueGF) {
 this.overallLeagueGF = overallLeagueGF;
 }
 
+@JsonProperty("overall_league_GA")
 public String getOverallLeagueGA() {
 return overallLeagueGA;
 }
 
+@JsonProperty("overall_league_GA")
 public void setOverallLeagueGA(String overallLeagueGA) {
 this.overallLeagueGA = overallLeagueGA;
 }
 
+@JsonProperty("overall_league_PTS")
 public String getOverallLeaguePTS() {
 return overallLeaguePTS;
 }
 
+@JsonProperty("overall_league_PTS")
 public void setOverallLeaguePTS(String overallLeaguePTS) {
 this.overallLeaguePTS = overallLeaguePTS;
 }
 
+@JsonProperty("home_league_position")
 public String getHomeLeaguePosition() {
 return homeLeaguePosition;
 }
 
+@JsonProperty("home_league_position")
 public void setHomeLeaguePosition(String homeLeaguePosition) {
 this.homeLeaguePosition = homeLeaguePosition;
 }
 
+@JsonProperty("home_promotion")
 public String getHomePromotion() {
 return homePromotion;
 }
 
+@JsonProperty("home_promotion")
 public void setHomePromotion(String homePromotion) {
 this.homePromotion = homePromotion;
 }
 
+@JsonProperty("home_league_payed")
 public String getHomeLeaguePayed() {
 return homeLeaguePayed;
 }
 
+@JsonProperty("home_league_payed")
 public void setHomeLeaguePayed(String homeLeaguePayed) {
 this.homeLeaguePayed = homeLeaguePayed;
 }
 
+@JsonProperty("home_league_W")
 public String getHomeLeagueW() {
 return homeLeagueW;
 }
 
+@JsonProperty("home_league_W")
 public void setHomeLeagueW(String homeLeagueW) {
 this.homeLeagueW = homeLeagueW;
 }
 
+@JsonProperty("home_league_D")
 public String getHomeLeagueD() {
 return homeLeagueD;
 }
 
+@JsonProperty("home_league_D")
 public void setHomeLeagueD(String homeLeagueD) {
 this.homeLeagueD = homeLeagueD;
 }
 
+@JsonProperty("home_league_L")
 public String getHomeLeagueL() {
 return homeLeagueL;
 }
 
+@JsonProperty("home_league_L")
 public void setHomeLeagueL(String homeLeagueL) {
 this.homeLeagueL = homeLeagueL;
 }
 
+@JsonProperty("home_league_GF")
 public String getHomeLeagueGF() {
 return homeLeagueGF;
 }
 
+@JsonProperty("home_league_GF")
 public void setHomeLeagueGF(String homeLeagueGF) {
 this.homeLeagueGF = homeLeagueGF;
 }
 
+@JsonProperty("home_league_GA")
 public String getHomeLeagueGA() {
 return homeLeagueGA;
 }
 
+@JsonProperty("home_league_GA")
 public void setHomeLeagueGA(String homeLeagueGA) {
 this.homeLeagueGA = homeLeagueGA;
 }
 
+@JsonProperty("home_league_PTS")
 public String getHomeLeaguePTS() {
 return homeLeaguePTS;
 }
 
+@JsonProperty("home_league_PTS")
 public void setHomeLeaguePTS(String homeLeaguePTS) {
 this.homeLeaguePTS = homeLeaguePTS;
 }
 
+@JsonProperty("away_league_position")
 public String getAwayLeaguePosition() {
 return awayLeaguePosition;
 }
 
+@JsonProperty("away_league_position")
 public void setAwayLeaguePosition(String awayLeaguePosition) {
 this.awayLeaguePosition = awayLeaguePosition;
 }
 
+@JsonProperty("away_promotion")
 public String getAwayPromotion() {
 return awayPromotion;
 }
 
+@JsonProperty("away_promotion")
 public void setAwayPromotion(String awayPromotion) {
 this.awayPromotion = awayPromotion;
 }
 
+@JsonProperty("away_league_payed")
 public String getAwayLeaguePayed() {
 return awayLeaguePayed;
 }
 
+@JsonProperty("away_league_payed")
 public void setAwayLeaguePayed(String awayLeaguePayed) {
 this.awayLeaguePayed = awayLeaguePayed;
 }
 
+@JsonProperty("away_league_W")
 public String getAwayLeagueW() {
 return awayLeagueW;
 }
 
+@JsonProperty("away_league_W")
 public void setAwayLeagueW(String awayLeagueW) {
 this.awayLeagueW = awayLeagueW;
 }
 
+@JsonProperty("away_league_D")
 public String getAwayLeagueD() {
 return awayLeagueD;
 }
 
+@JsonProperty("away_league_D")
 public void setAwayLeagueD(String awayLeagueD) {
 this.awayLeagueD = awayLeagueD;
 }
 
+@JsonProperty("away_league_L")
 public String getAwayLeagueL() {
 return awayLeagueL;
 }
 
+@JsonProperty("away_league_L")
 public void setAwayLeagueL(String awayLeagueL) {
 this.awayLeagueL = awayLeagueL;
 }
 
+@JsonProperty("away_league_GF")
 public String getAwayLeagueGF() {
 return awayLeagueGF;
 }
 
+@JsonProperty("away_league_GF")
 public void setAwayLeagueGF(String awayLeagueGF) {
 this.awayLeagueGF = awayLeagueGF;
 }
 
+@JsonProperty("away_league_GA")
 public String getAwayLeagueGA() {
 return awayLeagueGA;
 }
 
+@JsonProperty("away_league_GA")
 public void setAwayLeagueGA(String awayLeagueGA) {
 this.awayLeagueGA = awayLeagueGA;
 }
 
+@JsonProperty("away_league_PTS")
 public String getAwayLeaguePTS() {
 return awayLeaguePTS;
 }
 
+@JsonProperty("away_league_PTS")
 public void setAwayLeaguePTS(String awayLeaguePTS) {
 this.awayLeaguePTS = awayLeaguePTS;
 }
 
+@JsonProperty("league_round")
 public String getLeagueRound() {
 return leagueRound;
 }
 
+@JsonProperty("league_round")
 public void setLeagueRound(String leagueRound) {
 this.leagueRound = leagueRound;
 }
 
+@JsonProperty("team_badge")
 public String getTeamBadge() {
 return teamBadge;
 }
 
+@JsonProperty("team_badge")
 public void setTeamBadge(String teamBadge) {
 this.teamBadge = teamBadge;
 }
 
+@JsonProperty("fk_stage_key")
 public String getFkStageKey() {
 return fkStageKey;
 }
 
+@JsonProperty("fk_stage_key")
 public void setFkStageKey(String fkStageKey) {
 this.fkStageKey = fkStageKey;
 }
 
+@JsonProperty("stage_name")
 public String getStageName() {
 return stageName;
 }
 
+@JsonProperty("stage_name")
 public void setStageName(String stageName) {
 this.stageName = stageName;
+}
+
+@JsonAnyGetter
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
+
+@JsonAnySetter
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
 }
 
 }
